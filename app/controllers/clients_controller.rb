@@ -22,6 +22,22 @@ class ClientsController < ApplicationController
         end
     end
 
+    def edit
+    end
+
+    def update
+        if @client.update(client_params)
+            redirect_to client_path(@client)
+        else 
+            render :edit
+        end
+    end
+
+    def destroy
+        @client.destroy
+        redirect_to clients_path
+    end
+
     private
 
     def set_client

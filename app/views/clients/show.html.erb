@@ -1,9 +1,19 @@
 <h1><%= @client.name %></h1>
 
-<p>Neighborhood: <%= @client.neighborhood %>
-<p>Address: <%= @client.address %>
-<p>Phone: <%= @client.phone %>
-<p>Email: <%= @client.email %>
-<p>Fee Per Visit: $<%= @client.base_fee %>
-
+<p>
+    Neighborhood: <%= @client.neighborhood %>
 </p>
+<p>
+    Address: <%= @client.address %>
+</p>
+<p>
+    Phone: <%= @client.phone %>
+</p>
+<p>
+    Email: <%= @client.email %>
+</p>
+<p>
+    Fee Per Visit: $<%= @client.base_fee %>
+</p>
+
+<%= link_to("Delete Client", client_path(@client), data: {method: :delete, confirm: "Are you sure you want to delete this client?"}) %>
