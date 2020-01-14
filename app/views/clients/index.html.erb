@@ -1,8 +1,10 @@
 <h1>Your Clients List</h1>
 
 <% @clients.each do |client| %>
+<fieldset>
     <p><%= link_to "#{client.name}", client_path(client) %></p>
     <p><%= "#{client.neighborhood}" %></p>
     <p> "Pet's names" </p>
+</fieldset>
 
-    <% end %>
+<% end %>
