@@ -1,0 +1,12 @@
+<%= form_for @appointment do |a| %>
+    <p>
+    <%= a.label "Appointment Start Date:" %>
+    <%= a.text_field :start_date %>
+    </p>
+    <p>
+    <%= a.label "Appointment End Date:" %>
+    <%= a.text_field :end_date %>
+    </p>
+    <%= a.submit %>
+
+<% end %>
