@@ -1,4 +1,4 @@
-<%= form_for @appointment do |a| %>
+<%= form_for(@appointment) do |a| %>
     <p>
     <%= a.label "Appointment Start Date:" %>
     <%= a.text_field :start_date %>
@@ -7,6 +7,20 @@
     <%= a.label "Appointment End Date:" %>
     <%= a.text_field :end_date %>
     </p>
+    <p>
+    <%= a.label "Fee:" %>
+    <%= a.text_field :appt_fee %>
+    </p>
+    <p>
+    <%= a.label "Appointment Notes:" %>
+    <%= a.text_area :appt_note %>
+    </p>
+    <p>
+    <%= a.label :client_id %>
+    <%= a.select(:client_id, options_from_collection_for_select(Client.all, :id, :name)) %> 
+    </p>
+
+
     <%= a.submit %>
 
 <% end %>

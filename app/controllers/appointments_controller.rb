@@ -2,7 +2,11 @@ class AppointmentsController < ApplicationController
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
     def index
-        @appointments = Appointment.all
+        if params[:client_id]
+            @appointments = Client.find(params[:client_id]).appointments
+        else
+            @appointments = Appointment.all
+        end
     end
 
     def show
@@ -18,6 +22,7 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to appointment_path(@appointment)
         else
+            binding.pry
             render :new
         end
     end
@@ -45,7 +50,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-        params.require(:appointment).permit(:start_date, :end_date)
+        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :user_id, :client_id)
     end
 
 end

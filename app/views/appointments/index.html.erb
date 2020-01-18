@@ -1,5 +1,12 @@
-<h1>Your Appointments</h1>
+<h1>Your Upcoming Appointments</h1>
 
-<% @appointments.each do |a| %>
-    <%= "#{a.start_date}" %>
+<% @appointments.each do |appt| %>
+<fieldset>
+    <h4>Appointment for: <%= appt.client.name %><h4>
+    <%= "#{appt.start_date}" %> to <%= "#{appt.end_date}" %>
+    <%= "appt.pets.pluck(:name).join(', ')" %>
+    <%= appt.appt_note %>
+    <%= appt.appt_fee %>
+</fieldset>
+
     <% end %>
