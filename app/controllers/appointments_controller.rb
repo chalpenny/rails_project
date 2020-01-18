@@ -22,7 +22,6 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to appointment_path(@appointment)
         else
-            binding.pry
             render :new
         end
     end
