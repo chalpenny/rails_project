@@ -17,6 +17,8 @@ class ClientsController < ApplicationController
 
     def create
         @client = Client.new(client_params)
+        binding.pry
+
         if @client.save
             redirect_to client_path(@client)
         else
@@ -47,7 +49,7 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-        params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes, pets_attributes: [
+        params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes, :pets_attributes => [
             :name,
             :description,
             :notes
