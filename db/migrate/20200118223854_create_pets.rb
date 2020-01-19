@@ -5,7 +5,6 @@ class CreatePets < ActiveRecord::Migration[6.0]
       t.string :description
       t.string :notes
       t.references :client, null: false, foreign_key: true
-      t.references :TempPetNotes, null: false, foreign_key: true
 
       t.timestamps
     end

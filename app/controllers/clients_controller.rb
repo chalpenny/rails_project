@@ -11,6 +11,8 @@ class ClientsController < ApplicationController
 
     def new
         @client = Client.new
+        @client.pets.build(name: 'Juno')
+        @client.pets.build(name: 'Pippa')
     end
 
     def create
@@ -45,6 +47,10 @@ class ClientsController < ApplicationController
     end
 
     def client_params
-        params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes)
+        params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes, pets_attributes: [
+            :name,
+            :description,
+            :notes
+        ])
     end
 end

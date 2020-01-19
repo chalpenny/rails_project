@@ -1,2 +1,0 @@
-class TempPetNotesController < ApplicationController
-end

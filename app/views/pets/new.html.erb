@@ -11,12 +11,7 @@
     <%= pet.label :notes %>
     <%= pet.text_area :notes %>
 </p>
-<p>
-<%= pet.fields_for :temp_pet_notes do |t| %>
-    <%= t.label "Temporary Notes:" %><br>
-    <%= t.t.text_area :content %>
-    <% end %>
-</p>
+
     <%= pet.submit %>
 <% end %>
 

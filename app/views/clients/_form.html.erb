@@ -27,6 +27,18 @@
         <%= f.label "Client Notes" %>
         <%= f.text_area :client_notes %>
     </p>
+    <fieldset>
+        <%= f.fields_for :pets do |pet| %>
+            <%= pet.label :name %>
+            <%= pet.text_field :name %><br>
+
+            <%= pet.label :description %>
+            <%= pet.text_area :description %><br>
+
+            <%= pet.label :notes %>
+            <%= pet.text_area :notes %><br>
+        <% end %>
+    </fieldset>
     <%= f.submit %>
 
 <% end %>

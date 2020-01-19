@@ -1,13 +1,12 @@
 class PetsController < ApplicationController
 
     def new
-        @pet = Pet.new
-        #pet = temp_pet_notes.build("senior")
-        #@pet = temp_pet_notes.build("allergies")
+        @pet = Pet.new    
     end
 
     def create
         @pet = Pet.new(pet_params)
+        binding.pry
         if @pet.save
             redirect_to @pet
         else
@@ -26,7 +25,7 @@ class PetsController < ApplicationController
     private
 
     def pet_params
-        params.require(:pet).permit(:name, :description, :notes, temp_pet_note_attributes: [:content])
+        params.require(:pet).permit(:name, :description, :notes)
     end
 
 end
