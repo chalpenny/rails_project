@@ -15,6 +15,9 @@ class ClientsController < ApplicationController
         @client.pets.build(name: 'Pippa')
     end
 
+    def edit
+    end
+
     def create
         @client = Client.new(client_params)
         binding.pry
@@ -24,9 +27,6 @@ class ClientsController < ApplicationController
         else
             render :new
         end
-    end
-
-    def edit
     end
 
     def update
@@ -50,6 +50,7 @@ class ClientsController < ApplicationController
 
     def client_params
         params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes, :pets_attributes => [
+            :pet_id,
             :name,
             :description,
             :notes
