@@ -1,6 +1,10 @@
 class PetsController < ApplicationController
-    before_action: :set_pet, only: [:show, :edit, :update, :destroy]
+    before_action :get_client
+    before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
+    def index
+        @pets = @client.pets
+    end
 
     def show
     end
@@ -14,23 +18,31 @@ class PetsController < ApplicationController
 
     def create
         @pet = @client.pets.build(pet_params)
-        binding.pry
         if @pet.save
-            redirect_to @pet
+            redirect_to @client
         else
             render :new
         end
     end
     
     def update
+        if @pet.update(pet_params)
+            redirect_to client_pet_path(@client), notice: 'Pet has been updated'
+        else
+            render :edit
+        end
     end
     
-    def destry
+    def destroy
         @pet.destroy
-        redirect_to clients_path
+        redirect_to client_pets_path(@client), notice: 'Pet has been deleted'
     end
 
     private
+
+    def get_client
+        @client = Client.find(params[:client_id])
+    end
 
     def set_pet
         @pet = @client.pets.find(params[:id])

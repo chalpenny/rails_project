@@ -1,8 +1,10 @@
 <h1><%= @client.name %></h1>
 
-<p>
+<p><strong>
     Neighborhood: <%= @client.neighborhood %>
-</p>
+</p></strong>
+<hr>
+<h3>Contact Card</h3> 
 <p>
     Address: <%= @client.address %>
 </p>
@@ -10,20 +12,28 @@
     Phone: <%= @client.phone %>
 </p>
 <p>
-    Email: <%= @client.email %>
+    Email: <a href="mailto:<%= @client.email %>"><%= @client.email %></A>
 </p>
 <p>
-    Fee Per Visit: $<%= @client.base_fee %>
+    Fee Per Visit: $<%= @client.base_fee %> per day
 </p>
 <p>
     Client Notes: <%= @client.client_notes %>
+</p><br><br>
+<h2>Client Pets</h2>
+<p>
+    <%= link_to("Add New Pet", new_client_pet_path(@client)) %>
 </p>
 <p>
-    Client Pets: <%= @client.pets.name %>
+    Click pet name to delete or edit info:
 </p>
-<% binding.pry %>
-
+<fieldset>
+    <% @client.pets.each do |pet| %></p>
+        <p><%= link_to pet.name, client_pet_path(@client, pet) %></p>
+        <p>Notes: <%= pet.notes %>
+        <% end %>
+</fieldset>
+<br>
 <%= link_to("Edit Client", edit_client_path(@client)) %>
 <%= link_to("Delete Client", client_path(@client), data: {method: :delete, confirm: "Are you sure you want to delete this client?"}) %>
-<br>
-<br>
+

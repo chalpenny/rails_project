@@ -1,0 +1,16 @@
+<%= form_for @pet do |pet| %>
+    <p>
+        <%= pet.label :name %>
+        <%= pet.text_field :name %>
+    </p>
+    <p>
+        <%= pet.label :description %>
+        <%= pet.text_area :description %>
+    </p>
+    <p>
+    <%= pet.label :notes %>
+    <%= pet.text_area :notes %>
+</p>
+
+    <%= pet.submit %>
+<% end %>

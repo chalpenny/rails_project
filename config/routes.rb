@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :clients do
     resources :appointments, only: [:show, :index]
-    resources :pets, only: [:new, :create, :update, :show, :destroy]
+    resources :pets 
   end
 
   root "clients#index"

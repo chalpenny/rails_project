@@ -11,8 +11,8 @@ class ClientsController < ApplicationController
 
     def new
         @client = Client.new
-        @client.pets.build(name: 'Juno')
-        @client.pets.build(name: 'Pippa')
+        @client.pets.build
+        @client.pets.build
     end
 
     def edit
@@ -50,7 +50,6 @@ class ClientsController < ApplicationController
 
     def client_params
         params.require(:client).permit(:name, :phone, :email, :neighborhood, :address, :base_fee, :client_notes, :pets_attributes => [
-            :pet_id,
             :name,
             :description,
             :notes

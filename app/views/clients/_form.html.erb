@@ -27,6 +27,7 @@
         <%= f.label "Client Notes" %>
         <%= f.text_area :client_notes %>
     </p>
+    <h5>Enter Pet Info:</h5>
     <fieldset>
         <%= f.fields_for :pets do |pet| %>
             <%= pet.label :name %>
@@ -39,6 +40,7 @@
             <%= pet.text_area :notes %><br>
         <% end %>
     </fieldset>
-    <%= f.submit %>
+    <br>link to click to add another pet
+    <br><%= f.submit %>
 
 <% end %>
