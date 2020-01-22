@@ -1,4 +1,4 @@
-<%= form_for @pet do |pet| %>
+<%= form_for [@client, @pet] do |pet| %>
     <p>
         <%= pet.label :name %>
         <%= pet.text_field :name %>
