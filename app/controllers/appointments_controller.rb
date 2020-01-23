@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+    before_action :get_client
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -10,11 +11,10 @@ class AppointmentsController < ApplicationController
     end
 
     def show
-        set_appointment
     end
         
     def new
-        @appointment = Appointment.new
+        @appointment = @client.appointments.build
     end
 
     def create
@@ -44,12 +44,16 @@ class AppointmentsController < ApplicationController
 
     private
 
+    def get_client
+        @client = Client.find(params[:client_id])
+    end
+
     def set_appointment
         @appointment = Appointment.find(params[:id])
     end
 
     def appointment_params
-        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :user_id, :client_id)
+        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :user_id, :clients_attributes => [:client_id])
     end
 
 end

@@ -39,8 +39,6 @@
             <%= pet.label :notes %>
             <%= pet.text_area :notes %><br>
         <% end %>
-        <% binding.pry %>
-        <%= link_to("Add Another Pet", new_client_pet_path(@client)) %>
     </fieldset>
     <br>
     <br><%= f.submit %>
