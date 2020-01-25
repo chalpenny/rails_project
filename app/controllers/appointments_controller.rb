@@ -18,6 +18,7 @@ class AppointmentsController < ApplicationController
         if @appointment.save
             redirect_to client_appointments_path(@appointment)
         else
+            binding.pry
             render :new
         end
     end
@@ -49,7 +50,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :clients_attributes => [:client_id])
+        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :users_attributes => [:user_id], :clients_attributes => [:client_id])
     end
 
 end
