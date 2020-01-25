@@ -1,10 +1,11 @@
-<%= form_for(@appointment) do |a| %>
+<h2>Add an appointment for: </h2>
+<%= form_for [@client, @appointment] do |a| %>
     <p>
-    <%= a.label "Appointment Start Date:" %>
+    <%= a.label "Start Date:" %>
     <%= a.text_field :start_date %>
     </p>
     <p>
-    <%= a.label "Appointment End Date:" %>
+    <%= a.label "End Date:" %>
     <%= a.text_field :end_date %>
     </p>
     <p>
@@ -12,14 +13,9 @@
     <%= a.text_field :appt_fee %>
     </p>
     <p>
-    <%= a.label "Appointment Notes:" %>
+    <%= a.label "Notes:" %>
     <%= a.text_area :appt_note %>
     </p>
-    <p>
-    <%= a.label :client_id %>
-    <%= a.select(:client_id, options_from_collection_for_select(Client.all, :id, :name)) %> 
-    </p>
-
 
     <%= a.submit %>
 

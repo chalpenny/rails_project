@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :appointments
 
   resources :clients do
-    resources :appointments, only: [:show, :index]
+    resources :appointments
     resources :pets 
   end
 

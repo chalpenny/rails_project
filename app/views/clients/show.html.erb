@@ -3,6 +3,9 @@
 <p><strong>
     Neighborhood: <%= @client.neighborhood %>
 </p></strong>
+<p>
+    <%= link_to("Add appointment for this client", new_client_appointment_path(@client)) %>
+</p>
 <hr>
 <h3>Contact Card</h3> 
 <p>

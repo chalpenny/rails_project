@@ -3,11 +3,7 @@ class AppointmentsController < ApplicationController
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
     def index
-        if params[:client_id]
-            @appointments = Client.find(params[:client_id]).appointments
-        else
-            @appointments = Appointment.all
-        end
+        @appointments = @client.appointments
     end
 
     def show
@@ -18,9 +14,9 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        @appointment = Appointment.new(appointment_params)
+        @appointment = @client.appointments.build(appointment_params)
         if @appointment.save
-            redirect_to appointment_path(@appointment)
+            redirect_to client_appointments_path(@appointment)
         else
             render :new
         end
@@ -31,7 +27,7 @@ class AppointmentsController < ApplicationController
 
     def update
         if @appointment.update(appointment_params)
-            redirect_to appointment_path(@appointment)
+            redirect_to client_appointment_path(@appointment)
         else
             render :edit
         end
@@ -39,7 +35,7 @@ class AppointmentsController < ApplicationController
 
     def destroy
         @appointment.destroy
-        redirect_to appointments_path
+        redirect_to client_appointments_path
     end
 
     private
@@ -49,11 +45,11 @@ class AppointmentsController < ApplicationController
     end
 
     def set_appointment
-        @appointment = Appointment.find(params[:id])
+        @appointment = @client.appointments.find(params[:id])
     end
 
     def appointment_params
-        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :user_id, :clients_attributes => [:client_id])
+        params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :clients_attributes => [:client_id])
     end
 
 end

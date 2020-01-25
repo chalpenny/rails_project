@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
     def new
         @client = Client.new
         @client.pets.build
-        @client.pets.build
+        @client.appointments.build
     end
 
     def edit
@@ -23,6 +23,7 @@ class ClientsController < ApplicationController
         if @client.save
             redirect_to client_path(@client)
         else
+            binding.pry
             render :new
         end
     end
