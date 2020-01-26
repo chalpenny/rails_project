@@ -3,7 +3,12 @@ class AppointmentsController < ApplicationController
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
     def index
+        if params.include?(:client_id)
         @appointments = @client.appointments
+            render appointments_path
+        else
+            render appointments_path
+        end
     end
 
     def show
@@ -14,11 +19,10 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        @appointment = @client.appointments.build(appointment_params)
+        @appointment = current_user.appointments.build(appointment_params)
         if @appointment.save
             redirect_to client_appointments_path(@appointment)
         else
-            binding.pry
             render :new
         end
     end

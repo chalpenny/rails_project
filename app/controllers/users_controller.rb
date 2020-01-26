@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user
+    before_action :set_appointment
     
         def index
             @users = User.all
@@ -29,8 +29,8 @@ class UsersController < ApplicationController
 
         private
 
-        def set_user
-            @user = User.find(params[:id])
+        def set_appointment
+            @appointment = Appointment.find(params[:id])
         end
 
         def user_params

@@ -23,7 +23,6 @@ class ClientsController < ApplicationController
         if @client.save
             redirect_to client_path(@client)
         else
-            binding.pry
             render :new
         end
     end

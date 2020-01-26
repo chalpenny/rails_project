@@ -1,22 +1,23 @@
-<h2>Add an appointment for: </h2>
+<h2>Add an appointment for <%= @client.name %></h2>
 <%= form_for [@client, @appointment] do |a| %>
     <p>
-    <%= a.label "Start Date:" %>
-    <%= a.text_field :start_date %>
+        <%= a.label "Start Date:" %>
+        <%= a.text_field :start_date %>
     </p>
     <p>
-    <%= a.label "End Date:" %>
-    <%= a.text_field :end_date %>
+        <%= a.label "End Date:" %>
+        <%= a.text_field :end_date %>
     </p>
     <p>
-    <%= a.label "Fee:" %>
-    <%= a.text_field :appt_fee %>
+        <%= a.label "Fee:" %>
+        <%= a.text_field :appt_fee %>
     </p>
     <p>
-    <%= a.label "Notes:" %>
-    <%= a.text_area :appt_note %>
+        <%= a.label "Notes:" %>
+        <%= a.text_area :appt_note %>
     </p>
+    <p>
+        <%= a.hidden_field :client_id %>
 
     <%= a.submit %>
-
 <% end %>
