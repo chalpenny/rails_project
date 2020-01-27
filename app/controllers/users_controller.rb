@@ -1,9 +1,15 @@
 class UsersController < ApplicationController
+    protect_from_forgery 
+    before_action :authenticate_user!
     before_action :set_appointment
     
         def index
-            @users = User.all
-        end
+        if params.include?(:appointment_id)
+            @user = @appointment.user
+                    render user_path
+                else
+                    render user_path
+                end        end
 
         def show
         end

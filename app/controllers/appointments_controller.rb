@@ -15,7 +15,7 @@ class AppointmentsController < ApplicationController
     end
         
     def new
-        @appointment = @client.appointments.build
+        @appointment = @user.appointments.build
     end
 
     def create
