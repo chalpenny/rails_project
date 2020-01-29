@@ -7,7 +7,7 @@
     <%= link_to("Add appointment for this client", new_client_appointment_path(@client)) %>
 </p>
 <hr>
-<h3>Contact Card</h3> 
+<h3>Contact Info</h3> 
 <p>
     Address: <%= @client.address %>
 </p>
@@ -33,6 +33,7 @@
 <fieldset>
     <% @client.pets.each do |pet| %></p>
         <p><%= link_to pet.name, client_pet_path(@client, pet) %></p>
+        <p><%= pet.description %>
         <p>Notes: <%= pet.notes %>
         <% end %>
 </fieldset>

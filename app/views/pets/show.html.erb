@@ -8,6 +8,10 @@
 <p>
     <strong>Special Notes: </strong><%= @pet.notes %>
 </p>
+<p>
+    <%= render partial: "notes/form", locals: {notable: @pet} %>
+    <%= render partial: "notes/notes", locals: {notable: @pet} %>
+</p>
 
 <br>
 <%= link_to("All Pets", client_pets_path) %> |

@@ -4,12 +4,7 @@ class UsersController < ApplicationController
     before_action :set_appointment
     
         def index
-        if params.include?(:appointment_id)
-            @user = @appointment.user
-                    render user_path
-                else
-                    render user_path
-                end        end
+        end
 
         def show
         end
