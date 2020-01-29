@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    protect_from_forgery 
-    before_action :authenticate_user!
+    #protect_from_forgery 
+    #before_action :authenticate_user!
     before_action :set_appointment
     
         def index
