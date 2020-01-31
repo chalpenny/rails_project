@@ -1,5 +1,7 @@
 class AppointmentsController < ApplicationController
+    before_action :authenticate_user!
     before_action :get_client
+    before_action :get_user
     before_action :set_appointment, only: [:show, :edit, :update, :destroy]
 
     def index
@@ -7,6 +9,7 @@ class AppointmentsController < ApplicationController
         @appointments = @client.appointments
             render appointments_path
         else
+            @appointments = @user.appointments
             render appointments_path
         end
     end
@@ -19,9 +22,9 @@ class AppointmentsController < ApplicationController
     end
 
     def create
-        @appointment = @client.appointments.build(appointment_params)
+        @appointment = @user.appointments.build(appointment_params)
         if @appointment.save
-            redirect_to client_appointments_path(@appointment)
+            redirect_to client_appointments_path(@client)
         else
             render :new
         end
@@ -45,8 +48,12 @@ class AppointmentsController < ApplicationController
 
     private
 
+    def get_user
+        @user = current_user
+    end
+
     def get_client
-        @client = Client.find(params[:client_id])
+        @client = Client.find_by(params[:client_id])
     end
 
     def set_appointment
@@ -54,6 +61,7 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
+        binding.pry
         params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :users_attributes => [:user_id], :clients_attributes => [:client_id])
     end
 

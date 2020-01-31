@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+    before_action :authenticate_user!
     before_action :get_client
     before_action :set_pet, only: [:show, :edit, :update, :destroy]
 
@@ -49,7 +50,7 @@ class PetsController < ApplicationController
     end
 
     def pet_params
-        params.require(:pet).permit(:name, :description, :notes, :clients_attributes => [:client_id])
+        params.require(:pet).permit(:name, :description, :clients_attributes => [:client_id])
     end
 
 end

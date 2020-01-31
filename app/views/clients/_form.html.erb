@@ -1,3 +1,4 @@
+<h4>Enter Client Info:</h4>
 <%= form_for @client do |f| %>
     <p>
         <%= f.label :name %>
@@ -27,17 +28,14 @@
         <%= f.label "Client Notes" %>
         <%= f.text_area :client_notes %>
     </p>
-    <h5>Enter Pet Info:</h5>
+    <h4>Enter Pet Info:</h4>
     <fieldset>
         <%= f.fields_for :pets do |pet| %>
             <%= pet.label :name %>
-            <%= pet.text_field :name %><br>
-
+            <%= pet.text_field :name %>
+            <br>
             <%= pet.label :description %>
-            <%= pet.text_area :description %><br>
-
-            <%= pet.label :notes %>
-            <%= pet.text_area :notes %><br>
+            <%= pet.text_area :description %>
         <% end %>
     </fieldset>
     <br>
