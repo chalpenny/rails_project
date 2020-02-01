@@ -2,7 +2,6 @@ class UsersController < ApplicationController
     #protect_from_forgery 
     before_action :authenticate_user!
     before_action :set_appointment
-    
 
         def show
         end
@@ -16,6 +15,5 @@ class UsersController < ApplicationController
         def user_params
             params.require(:client).permit(:name, :email, :encrypted_password)
         end
-    end
 
 end

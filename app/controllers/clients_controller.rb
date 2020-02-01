@@ -7,7 +7,6 @@ class ClientsController < ApplicationController
     end
 
     def show
-        set_client
     end
 
     def new

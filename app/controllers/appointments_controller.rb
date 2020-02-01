@@ -7,10 +7,10 @@ class AppointmentsController < ApplicationController
     def index
         if params.include?(:client_id)
         @appointments = @client.appointments
-            render appointments_path
+           # render appointments_path
         else
             @appointments = @user.appointments
-            render appointments_path
+           # render appointments_path
         end
     end
 
@@ -23,6 +23,7 @@ class AppointmentsController < ApplicationController
 
     def create
         @appointment = @user.appointments.build(appointment_params)
+        @appointment.client_id = @client.id
         if @appointment.save
             redirect_to client_appointments_path(@client)
         else
@@ -31,6 +32,7 @@ class AppointmentsController < ApplicationController
     end
 
     def edit
+         
     end
 
     def update
@@ -61,7 +63,6 @@ class AppointmentsController < ApplicationController
     end
 
     def appointment_params
-        binding.pry
         params.require(:appointment).permit(:start_date, :end_date, :appt_note, :appt_fee, :users_attributes => [:user_id], :clients_attributes => [:client_id])
     end
 
