@@ -1,7 +1,7 @@
 class Client < ApplicationRecord
     validates :name, presence: true
    # validate :contact_phone_or_email
-
+    
     has_many :notes, as: :notable
     has_many :pets, dependent: :destroy
     has_many :appointments, dependent: :destroy

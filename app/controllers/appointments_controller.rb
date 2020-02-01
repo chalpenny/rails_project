@@ -18,6 +18,7 @@ class AppointmentsController < ApplicationController
     end
         
     def new
+        #request.path_parameters[:client_id] = @client.id
         @appointment = @user.appointments.build
     end
 
