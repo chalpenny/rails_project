@@ -1,4 +1,4 @@
-<h2>Add an appointment for <%= @client.name %></h2>
+<h2>Add an appointment for <%= @client.name %> @ $<%= @client.base_fee %> per day </h2>
 <%= form_for [@client, @appointment] do |a| %>
     <p>
         <%= a.label "Start Date:" %>
@@ -9,7 +9,7 @@
         <%= a.text_field :end_date %>
     </p>
     <p>
-        <%= a.label "Fee:" %>
+        <%= a.label "Total Fee:" %>
         <%= a.text_field :appt_fee %>
     </p>
     <p>

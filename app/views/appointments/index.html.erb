@@ -2,15 +2,15 @@
 
 <% @appointments.each do |appt| %>
 <fieldset>
-    <h4>Appointments for <%= appt.client.name %></h4>
+    <h4>Appointment for <%= appt.client.name %></h4>
     <p>
         <%= appt.start_date %> to <%= appt.end_date %> 
     </p>
     <p>
-        <%= appt.pets.pluck(:name).join(', ') %>
+        Pets: <%= appt.pets.pluck(:name).join(', ') %>
     </p>
     <p>
-        $<%= appt.appt_fee %> per day
+        Cost: $<%= appt.appt_fee %> 
     </p>
     <p>
         <%= appt.appt_note %> 

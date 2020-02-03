@@ -2,11 +2,17 @@
 
 <% @clients.each do |client| %>
     <fieldset>
-    <p><%= link_to client.name, client_path(client) %></p>
-    <p><strong>Neighborhood: <%= client.neighborhood %></strong></p>
+    <p>
+        <%= link_to client.name, client_path(client) %>
+    </p>
+    <p>
+        <strong>Neighborhood: <%= client.neighborhood %></strong>
+    </p>
     <p><strong>Pets:</strong></p>
     <p><% client.pets.each do |pet| %></p>
-        <p> <%= pet.name %> </p>
-            <% end %>
+        <p> 
+            <%= pet.name %> 
+        </p>
+    <% end %>
     </fieldset>
 <% end %>
