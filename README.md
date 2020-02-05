@@ -1,26 +1,15 @@
 # Your Best Friend's best friend
 
-Hi and thanks  for using my pet sitting appointment tracker.  You can use this to keep track of all your clients and any notes about them and their best furry friends!
+Hi and thanks for using my pet sitting appointment tracker.  Sign up with your email and keep track of all your appointments, clients, and any notes about them and their best furry friends!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version 2.6.3
 
-Things you may want to cover:
+* Development: After checking out the repo, run bin/setup to install dependencies. You can also run bin/console for an interactive prompt that will allow you to experiment.
 
-* Ruby version
+* To install this gem onto your local machine, run bundle exec rake install. 
 
-* System dependencies
+* Contributing Bug reports and pull requests are welcome on GitHub at https://github.com/chalpenny/rails_project. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
-* Configuration
+* License: The gem is available as open source under the terms of the MIT License.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Code of Conduct: Everyone interacting in the CliProject project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the code of conduct.
