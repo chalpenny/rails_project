@@ -1,5 +1,10 @@
 <h1>Your Clients</h1>
 
+<%= form_tag clients_path, method: :get  do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag %>
+<% end %>
+
 <% @clients.each do |client| %>
     <fieldset>
     <p>

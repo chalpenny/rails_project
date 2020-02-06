@@ -3,7 +3,11 @@ class ClientsController < ApplicationController
     before_action :set_client, only: [:show, :edit, :update, :destroy]
 
     def index
-        @clients = Client.all.sort_by(&:name)
+        if params[:search]
+           @clients = Client.where(neighborhood:params[:search]) 
+        else
+            @clients = Client.all.sort_by(&:name)
+        end
     end
 
     def show
